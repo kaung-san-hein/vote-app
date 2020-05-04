@@ -4,7 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const { notFound, errors } = require("./handlers");
+require("./models"); // connect database
+const { notFound, errors } = require("./handlers"); // notfound error handle
 
 const app = express();
 const port = process.env.PORT;
