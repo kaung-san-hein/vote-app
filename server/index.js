@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 
 require("./models"); // connect database
 const { notFound, errors } = require("./handlers"); // notfound error handle
@@ -13,7 +14,7 @@ const port = process.env.PORT;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.json({ hello: "world" }));
+app.use("/api/auth", routes.auth);
 
 app.use(notFound);
 app.use(errors);
