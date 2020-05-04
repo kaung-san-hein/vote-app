@@ -15,4 +15,5 @@ module.exports = {
   errors,
   notFound,
   ...require("./auth"), // not need module in auth.js
+  ...require("./poll"),
 };
