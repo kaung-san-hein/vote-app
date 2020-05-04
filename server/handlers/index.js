@@ -7,12 +7,12 @@ const notFound = (req, res, next) => {
 
 const errors = (err, req, res, next) => {
   res
-    .status(err.status || 500)
+    .status(err.status || 400)
     .json({ err: err.message || "Something went wrong" });
 };
 
 module.exports = {
   errors,
   notFound,
-  ...require("./auth"),
+  ...require("./auth"), // not need module in auth.js
 };
