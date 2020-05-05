@@ -8,7 +8,7 @@ const notFound = (req, res, next) => {
 const errors = (err, req, res, next) => {
   res
     .status(err.status || 400)
-    .json({ err: err.message || "Something went wrong" });
+    .json({ message: err.message || "Something went wrong" });
 };
 
 module.exports = {
