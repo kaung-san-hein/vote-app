@@ -1,4 +1,12 @@
+require("dotenv").config();
 const db = require("./models");
+const mongoose = require("mongoose");
+
+mongoose.connect(
+  process.env.DB_CONNECT,
+  { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true },
+  () => console.log("DB connected successfully!")
+);
 
 const users = [
   { username: "username", password: "password" },
