@@ -22,15 +22,14 @@ export const authUser = (path, data) => {
   return async (dispatch) => {
     try {
       const { token, ...user } = await api.call("post", `auth/${path}`, data);
-      console.log(token);
-      console.log(user);
+
       localStorage.setItem("jwtToken", token);
       api.setToken(token);
       dispatch(setCurrentUser(user));
       dispatch(removeError());
     } catch (error) {
       const { message } = error.response.data;
-      console.log(message);
+
       dispatch(addError(message));
     }
   };
