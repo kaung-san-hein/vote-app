@@ -38,7 +38,7 @@ class Auth extends Component {
 
           <label htmlFor="password">password</label>
           <input
-            type="text"
+            type="password"
             value={password}
             id="password"
             name="password"

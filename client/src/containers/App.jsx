@@ -4,6 +4,7 @@ import store from "../store";
 import decode from "jwt-decode";
 import { setCurrentUser, addError, setToken } from "../store/actions";
 import Auth from "../components/Auth";
+import ErrorMessage from "../components/ErrorMessage";
 
 const token = localStorage.getItem("jwtToken");
 
@@ -20,6 +21,7 @@ if (token) {
 const App = () => (
   <Provider store={store}>
     <Auth authType="login" />
+    <ErrorMessage />
   </Provider>
 );
 
