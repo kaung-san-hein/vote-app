@@ -1,7 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 
-const ErrorMessage = ({ error }) => <div>{error && error.message}</div>;
+const ErrorMessage = ({ error }) => (
+  <Fragment>
+    {error.message && <div className="error">{error.message}</div>}
+  </Fragment>
+);
 
 const mapStateToProps = (store) => ({
   error: store.error,

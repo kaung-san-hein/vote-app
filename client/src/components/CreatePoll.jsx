@@ -35,13 +35,18 @@ class CreatePoll extends Component {
       options: this.state.options.filter((option) => option !== ""),
     };
     this.props.createPoll(data);
+    this.setState({
+      question: "",
+      options: [""],
+    });
   };
 
   render() {
     const options = this.state.options.map((option, index) => (
       <Fragment key={index}>
-        <label>Options</label>
+        <label className="form-label">Options</label>
         <input
+          className="form-input"
           type="text"
           value={option}
           onChange={(event) => this.handleOptions(event, index)}
@@ -52,9 +57,12 @@ class CreatePoll extends Component {
     const { question } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="question">Question</label>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <label className="form-label" htmlFor="question">
+          Question
+        </label>
         <input
+          className="form-input"
           type="text"
           id="question"
           name="question"
@@ -62,10 +70,14 @@ class CreatePoll extends Component {
           onChange={this.handleChange}
         />
         {options}
-        <button type="button" onClick={this.addOptions}>
-          Add Options
-        </button>
-        <button type="submit">Submit</button>
+        <div className="button-center">
+          <button className="button" type="button" onClick={this.addOptions}>
+            Add Options
+          </button>
+          <button className="button" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     );
   }
