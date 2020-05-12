@@ -19,23 +19,23 @@ const Poll = ({ poll, vote }) => {
       </button>
     ));
 
-  //   const data = {
-  //     labels: poll.options.map((option) => option.option),
-  //     datasets: [
-  //       {
-  //         label: poll.question,
-  //         backgroundColor: poll.options.map(() => color()),
-  //         borderColor: "#323643",
-  //         data: poll.options.map((option) => option.votes),
-  //       },
-  //     ],
-  //   };
+  const data = poll.options && {
+    labels: poll.options.map((option) => option.option),
+    datasets: [
+      {
+        label: poll.question,
+        backgroundColor: poll.options.map(() => color()),
+        borderColor: "#323643",
+        data: poll.options.map((option) => option.votes),
+      },
+    ],
+  };
 
   return (
     <div>
       <h3>{poll.question}</h3>
       <div>{answers}</div>
-      {/* <Pie data={data} /> */}
+      {poll.options && <Pie data={data} />}
     </div>
   );
 };

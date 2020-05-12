@@ -17,7 +17,7 @@ const NavBar = ({ auth, logout }) => {
           <Link to="/login">Login</Link>
         </li>
         <li>
-          <Link to="/test">Test</Link>
+          <Link to="/poll/new">New</Link>
         </li>
         <li>
           <a onClick={logout}>Logout</a>

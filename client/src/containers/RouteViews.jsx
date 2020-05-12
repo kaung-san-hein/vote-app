@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import AuthPage from "../pages/AuthPage";
-import TestPage from "../pages/TestPage";
 import HomePage from "../pages/HomePage";
 import PollPage from "../pages/PollPage";
+import CreatePollPage from "../pages/CreatePollPage";
 
 const RouteViews = () => {
   return (
@@ -20,8 +20,8 @@ const RouteViews = () => {
           path="/register"
           render={() => <AuthPage authType="register" />}
         />
+        <Route exact path="/poll/new" component={CreatePollPage} />
         <Route exact path="/poll/:id" component={PollPage} />
-        <Route exact path="/test" component={TestPage} />
       </Switch>
     </main>
   );
