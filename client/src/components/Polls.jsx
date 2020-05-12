@@ -9,8 +9,9 @@ class Polls extends Component {
   }
 
   handleSelect = (id) => {
-    const { getCurrentPoll } = this.props;
+    const { history, getCurrentPoll } = this.props;
     getCurrentPoll(id);
+    history.push(`/poll/${id}`);
   };
 
   render() {
